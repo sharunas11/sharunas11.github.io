@@ -1,33 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-   
-    <title>Menu</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Form</title>
 
     <link rel="stylesheet" href="/style.css" />
-
-    <!-- import the webpage's javascript file -->
     <script src="/script.js" defer></script>
 
   </head>
 
   <body>
 
-    <ul> 
-      <li><a class="active" href="index.html" id="active">Menu</a></li>
-      <li><a href="/html/form.html">Add Pizza</a></li>
-      <li><a href="/html/about.html">About Us</a></li>
-    </ul>
-
-    <div id="content">
+    <div id="top">
     <h1>
-      Menu!!!!
+      VISMA PIZZA
     </h1>
-    <p>
-      We have the following pizzas available. Yes!! &#127798 &#127798 &#127798
+  </div>
 
-    </p>
-    <a href="/html/form.html" id="add">Add a pizza!</a>
+  <div id="othercont">
+    <form onsubmit="return createMenu()" action="javascript:void(0);">
+  
+      <h4>NAME : <br /><input type="text" class="input" id="Name" name="name" placeholder="e.g. Pepperoni" maxlength="30" required /></h4>
+    
+      <h4>PRICE : <br /><input type="number" class="input" id="Price" name="price" placeholder="e.g. 5.99" min="0.00" step=".01" required /></h4>
+  
+      <h4>HEAT : (1 low - 3 high) <br /><input type="number" class="input" id="Heat" name ="heat" min=1 max=3 step=1 placeholder="e.g. 1"></h4>
+  
+      <h4>TOPPINGS : <br /><input type="text" class="input" id="Toppings" name="Toppings" placeholder="e.g. Mushrooms, Olives" minlength="2"/></h4>
+  
+      <fieldset><h4>SELECT A PICTURE:<br></h4>
+        <input type="radio" id="pepperoni" name="picture" value="pepperoni">
+        <label for="pepperoni"><img src="source/pepperoni.jpg" ></label>
+        <input type="radio" id="hawaii" name="picture" value="hawaii">
+        <label for="hawaii"><img src="source/hawaiian.jpg" ></label>
+        <input type="radio" id="veggie" name="picture" value="veggie">
+        <label for="veggie"><img src="source/veggie.jpg" ></label>
+        <input type="radio" id="marga" name="picture" value="marga">
+        <label for="marga"><img src="source/margherita.jpg" ></label>
+      </fieldset>
+      <br>
+      <input type="submit" value="Add" id="addbtn">
+    </form><br>
+  
+    <button onclick="display()">
+      <a onclick="print()"  class="btn btn-danger" role="button">Show Menu</a>
+    </button>
+    <br><br>
+    <button id="namesort" style="display:none;">
+      <a onclick="sortbyname()" role="button">Sort by Name</a>
+    </button>
+    <button id="pricesort" style="display:none;">
+      <a onclick="sortbyprice()" role="button">Sort by Price</a>
+    </button>
+    <button id="heatsort" style="display:none;">
+      <a onclick="sortbyheat()" role="button">Sort by Heat</a>
+    </button>
+    <br><br>
+
+    <p id="menu1"></p>
+
+    <button id="removep" style="display:none;">
+      <label>Remove Piza:</label>
+      <input onclick="removepizza()" class="btn btn-danger" role="button" id="remove" placeholder="Enter Name">
+      </button>
   </div>
   </body>
 </html>
